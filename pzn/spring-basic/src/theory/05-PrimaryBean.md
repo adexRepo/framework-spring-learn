@@ -6,3 +6,4 @@
 - Untuk memilih primary bean, kita bisa menambahkan annotation @Primary
 example
     src\main\java\adexrepo\springbasic\config\DuplicateBeanConfiguration.java [foo1]
+    src\test\java\adexrepo\springbasic\PrimaryBeanTest.java
