@@ -7,6 +7,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import adexrepo.springbasic.config.DependsOnConfiguration;
+import adexrepo.springbasic.data.Foo;
 
 public class DependsOnTest {
     
@@ -19,9 +20,14 @@ public class DependsOnTest {
 
     @Test
     void testDependsOn(){
+        // disini foo belum dibuat
         Assertions.assertNotNull(applicationContext);
+
+        
+        // disini foo diakses, saat diakses foo dibuat karena foo ada annotation @Lazy
+        Foo foo = applicationContext.getBean(Foo.class);
+        Assertions.assertNotNull(foo);
+
     }
-
-
 
 }
