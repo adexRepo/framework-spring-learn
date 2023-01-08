@@ -8,3 +8,6 @@
 - Karena by default dia akan membuat secara random( jika di file yang sama maka akan sycronus).
 - misal kita ingin buat si A itu saat buat si X selesai.. atau setelah selesai X kita tolong
     buatkan si A
+- example:
+    src\test\java\adexrepo\springbasic\DependsOnTest.java
+    src\main\java\adexrepo\springbasic\config\DependsOnConfiguration.java
