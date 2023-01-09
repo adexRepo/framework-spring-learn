@@ -55,7 +55,6 @@
     src\main\java\adexrepo\springbasic\config\LifeCycleConfiguration.java
     src\test\java\adexrepo\springbasic\LifeCycleTest.java
 
-
 # Summary
 - There is three option
 1. Implements InitializingBean and DisposableBean
