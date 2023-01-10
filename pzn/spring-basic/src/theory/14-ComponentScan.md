@@ -8,8 +8,7 @@
 - Untuk melakukan itu, kita bisa menggunakan annotation [@ComponenScan]
 - lengkapnya:
     https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/ComponentScan.html 
-
-src:
+- src:
     src\test\java\adexrepo\springbasic\ScanTest.java
 
 # Component
@@ -21,11 +20,17 @@ src:
     dengan tipe yang sama, kita tetap harus menggunakan @Bean method.
 
 # Component Bean Name
-- Saat kita menggunakan @Component, nama bean akan dibuatkan secara otomatis oleh Spring.
+- Saat kita menggunakan [@Component], nama bean akan dibuatkan secara otomatis oleh Spring.
 - Jika kita ingin menggunakan @ComponentScan yg otomatis, bean name secara otomatis akan menggunakan
     nama class namun menjadi camelCase, misalnya CategoryService menjadi categoryService,
     class ProductGame menjadi productGame.
 - Jika kita menggunakan @Import, secara otomatis bean name akan menjadi NamaClass.class.getName()
 - Namun jika ingin membuat nama berbeda, kita juga bisa gunakan @Component(value="namaBean")
 
-// belum test
+# Annotation
+- Semua annotation yang sudah kita bahas di @Bean juga [didukung] di @Component
+- Seperti @Scope, @PostConstruct, @PreDestroy, @Lazy, @Primary dan lain2.
+- src:
+    src\test\java\adexrepo\springbasic\ComponentTest.java
+    src\main\java\adexrepo\springbasic\service\ProductService.java
+    src\main\java\adexrepo\springbasic\config\ComponentConfiguration.java
