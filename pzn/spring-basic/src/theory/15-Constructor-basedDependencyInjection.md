@@ -13,3 +13,9 @@
     hanya membuat satu constructor.
 - src:
     src\test\java\adexrepo\springbasic\ComponentTest.java
+
+# Multiple Constructor
+- Seperti diawal disebutkan bahwa Spring hanya mendukung satu constructor untuk Dependency Injection nya.
+- Namun bagaimana jika terdapat multiple constructor??
+- solusinya kita harus menandai constructor mana yang akan digunakan oleh Spring
+- Caranya kita bisa menggunakan annotation @Autowired

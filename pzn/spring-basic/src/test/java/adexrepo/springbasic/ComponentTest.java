@@ -7,7 +7,11 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import adexrepo.springbasic.config.ComponentConfiguration;
+import adexrepo.springbasic.repository.CategoryRepository;
+import adexrepo.springbasic.repository.CustomerRepository;
 import adexrepo.springbasic.repository.ProductRepository;
+import adexrepo.springbasic.service.CategoryService;
+import adexrepo.springbasic.service.CustomerService;
 import adexrepo.springbasic.service.ProductService;
 
 public class ComponentTest {
@@ -40,6 +44,32 @@ public class ComponentTest {
 
         Assertions.assertSame(productRepository, productService.getProductRepository());
 
+    }
+
+    @Test
+    void testSetterDependencyInjection(){
+        CategoryService categoryService = applicationContext.getBean(CategoryService.class);
+        CategoryRepository categoryRepository = applicationContext.getBean(CategoryRepository.class);
+
+        Assertions.assertSame(categoryService.getCategoryRepository(), categoryRepository);
+    }
+    
+    @Test
+    void testFieldDependencyInjection(){
+        CustomerService customerService = applicationContext.getBean(CustomerService.class);
+        CustomerRepository customerRepository = applicationContext.getBean("normalCustomerRepository",CustomerRepository.class);
+        
+        Assertions.assertSame(customerService.getNormalCustomerRepository(), customerRepository);
+    }
+
+    @Test
+    void testQualifierAnnotation(){
+        CustomerService customerService = applicationContext.getBean(CustomerService.class);
+        CustomerRepository normalCustomerRepository = applicationContext.getBean("normalCustomerRepository",CustomerRepository.class);
+        CustomerRepository premiumCustomerRepository = applicationContext.getBean("premiumCustomerRepository",CustomerRepository.class);
+        
+        Assertions.assertSame(customerService.getNormalCustomerRepository(), normalCustomerRepository);
+        Assertions.assertSame(customerService.getPremiumCustomerRepository(), premiumCustomerRepository);
     }
 
 }
