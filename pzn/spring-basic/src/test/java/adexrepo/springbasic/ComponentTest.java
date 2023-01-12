@@ -7,6 +7,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import adexrepo.springbasic.config.ComponentConfiguration;
+import adexrepo.springbasic.data.MultiFoo;
 import adexrepo.springbasic.repository.CategoryRepository;
 import adexrepo.springbasic.repository.CustomerRepository;
 import adexrepo.springbasic.repository.ProductRepository;
@@ -70,6 +71,14 @@ public class ComponentTest {
         
         Assertions.assertSame(customerService.getNormalCustomerRepository(), normalCustomerRepository);
         Assertions.assertSame(customerService.getPremiumCustomerRepository(), premiumCustomerRepository);
+    }
+
+    @Test
+    void testObjectProvider(){
+        MultiFoo multiFoo = applicationContext.getBean(MultiFoo.class);
+
+        Assertions.assertEquals(3, multiFoo.getFoos().size());
+
     }
 
 }
