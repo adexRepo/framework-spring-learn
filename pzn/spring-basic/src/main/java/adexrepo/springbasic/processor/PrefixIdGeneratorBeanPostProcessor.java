@@ -1,7 +1,5 @@
 package adexrepo.springbasic.processor;
 
-import java.util.UUID;
-
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.core.Ordered;
@@ -12,17 +10,17 @@ import lombok.extern.slf4j.Slf4j;
 
 @Component
 @Slf4j
-public class IdGeneratorBeanPostProcessor implements BeanPostProcessor,Ordered {
+public class PrefixIdGeneratorBeanPostProcessor implements BeanPostProcessor,Ordered {
     
     @Override
     public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException{
-        log.info("Id Generator Processor for Bean {}",beanName);
+        log.info("Prefix Id Generator Processor for Bean {}",beanName);
         if(bean instanceof IdAware){
-            log.info("Set Id Generator for Bean {}",beanName);
+            log.info("Set Prefix Id Generator for Bean {}",beanName);
             // cara baca: kalo bean yang selesai init implement IdAware
             // maka set Id pakai UUID
             IdAware idAware = (IdAware) bean;
-            idAware.setId(UUID.randomUUID().toString());
+            idAware.setId("ADX-"+idAware.getId());
         }
 
         return bean;

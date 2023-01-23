@@ -5,5 +5,7 @@
 - Sayangnya secara default, Spring tidak menjamin urutan eksekusinya
 - Agar kita bisa menentukan urutannya, kita bisa menggunakan interface Ordered
 - https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/core/Ordered.html 
-
-// belum test
+- src :
+    src\main\java\adexrepo\springbasic\aware\IdAware.java
+    src\main\java\adexrepo\springbasic\processor\IdGeneratorBeanPostProcessor.java
+    src\main\java\adexrepo\springbasic\processor\PrefixIdGeneratorBeanPostProcessor.java
