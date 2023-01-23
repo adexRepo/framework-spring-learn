@@ -1,5 +1,5 @@
 # Scope
-- Scope merupakan strategy / cara sebuah object dibuat.
+- Scope merupakan [strategy] / [cara] sebuah object dibuat.
 - Secara default strategy object di Spring adalah singleton, artinya hanya [dibuat][sekali],
     dan ketika kita akses, akan mengembalikan object yang sama.
 - Namun kita juga bisa mengubah scope bean yang kita mau di Spring.
